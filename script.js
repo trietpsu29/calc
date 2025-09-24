@@ -10,3 +10,6 @@ function multiplyNumbers(a, b) {
 function divideNumbers(a, b) {
   return a / b;
 }
+let operandA;
+let operandB;
+let operator;
