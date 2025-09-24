@@ -13,3 +13,10 @@ function divideNumbers(a, b) {
 let operandA;
 let operandB;
 let operator;
+
+function operate(a, op, b) {
+  if (op == "add") return addNumbers(a, b);
+  if (op == "subtract") return subtractNumbers(a, b);
+  if (op == "multiply") return multiplyNumbers(a, b);
+  return divideNumbers(a, b);
+}
