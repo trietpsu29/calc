@@ -31,10 +31,13 @@ function populate(val) {
 }
 function opHandler(val) {
   operandA = operate(operandA, operator, operandB);
-  operator = val;
   operandB = "";
   display.textContent = operandA;
   if (operandA == "Infinity") operandA = "";
+  if (val == "=") {
+    operandA = "";
+    operator = "";
+  } else operator = val;
 }
 function fnHandler(val) {
   if (val == "AC" || val == "a") {
@@ -75,8 +78,9 @@ btnFunc.forEach((btn) => {
   });
 });
 document.addEventListener("keydown", (event) => {
-  if (Number(event.key) || event.key == ".") populate(event.key);
-  else if (
+  if (!isNaN(event.key) || event.key == ".") {
+    populate(event.key);
+  } else if (
     event.key == "+" ||
     event.key == "-" ||
     event.key == "x" ||
