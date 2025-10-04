@@ -4,7 +4,6 @@
 body {
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 .scale {
   transform: scale(5);
@@ -12,18 +11,20 @@ body {
 }
 .container {
   display: flex;
-  max-width: 118px;
   flex-direction: column;
   border-radius: 10px;
   background-color: black;
-  padding-left: 3px;
+  max-width: 120px;
 }
 .buttons {
-  width: 140px;
+  display: flex;
+  flex-direction: column;
 }
 button {
   border-radius: 50%;
   border-style: none;
+  aspect-ratio: 1/1;
+  flex: 1 0 25%;
 }
 .num,
 .op {
@@ -45,7 +46,14 @@ button {
 .display {
   color: rgb(251, 251, 251);
   word-wrap: break-word;
+  padding: 3px;
 }
-.func {
-  max-width: 112px;
+.func,
+.nums,
+.display {
+  text-align: right;
+}
+.nums {
+  display: flex;
+  flex-wrap: wrap;
 }
