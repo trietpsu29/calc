@@ -21,12 +21,6 @@ function operate(a, op, b) {
   if (op == "x") return multiplyNumbers(a, b);
   return divideNumbers(a, b);
 }
-
-let operandA = "";
-let operandB = "";
-let operator = "";
-const display = document.querySelector(".display");
-
 function populate(val) {
   if (val == "." && display.textContent.includes(".")) return;
   if (operandB == "") {
@@ -35,6 +29,33 @@ function populate(val) {
   } else display.textContent += val;
   operandB = display.textContent;
 }
+function opHandler(val) {
+  operandA = operate(operandA, operator, operandB);
+  operator = val;
+  operandB = "";
+  display.textContent = operandA;
+  if (operandA == "Infinity") operandA = "";
+}
+function fnHandler(val) {
+  if (val == "AC" || val == "a") {
+    operandA = "";
+    operandB = "";
+    operator = "";
+    display.textContent = "0";
+  } else {
+    display.textContent = display.textContent.slice(0, -1);
+    operandB = display.textContent;
+    if (display.textContent == "") {
+      display.textContent = "0";
+    }
+  }
+}
+
+let operandA = "";
+let operandB = "";
+let operator = "";
+const display = document.querySelector(".display");
+
 const btnNum = document.querySelectorAll(".num");
 btnNum.forEach((btn) => {
   btn.addEventListener("click", (e) => {
@@ -44,27 +65,30 @@ btnNum.forEach((btn) => {
 const btnOp = document.querySelectorAll(".op");
 btnOp.forEach((btn) => {
   btn.addEventListener("click", (e) => {
-    operandA = operate(operandA, operator, operandB);
-    operator = e.target.textContent;
-    operandB = "";
-    display.textContent = operandA;
-    if (operandA == "Infinity") operandA = "";
+    opHandler(e.target.textContent);
   });
 });
 const btnFunc = document.querySelectorAll(".fn");
 btnFunc.forEach((btn) => {
   btn.addEventListener("click", (e) => {
-    if (e.target.textContent == "AC") {
-      operandA = "";
-      operandB = "";
-      operator = "";
-      display.textContent = "0";
-    } else {
-      display.textContent = display.textContent.slice(0, -1);
-      operandB = display.textContent;
-      if (display.textContent == "") {
-        display.textContent = "0";
-      }
-    }
+    fnHandler(e.target.textContent);
   });
+});
+document.addEventListener("keydown", (event) => {
+  if (Number(event.key) || event.key == ".") populate(event.key);
+  else if (
+    event.key == "+" ||
+    event.key == "-" ||
+    event.key == "x" ||
+    event.key == "/" ||
+    event.key == "=" ||
+    event.key == "Enter"
+  )
+    opHandler(event.key);
+  else if (
+    event.key == "Backspace" ||
+    event.key == "Delete" ||
+    event.key == "a"
+  )
+    fnHandler(event.key);
 });
