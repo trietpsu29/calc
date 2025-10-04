@@ -4,8 +4,11 @@
 body {
   display: flex;
   justify-content: center;
-  transform: scale(4);
-  transform-origin: top;
+  align-items: center;
+}
+.scale {
+  transform: scale(5);
+  transform-origin: top center;
 }
 .container {
   display: flex;
