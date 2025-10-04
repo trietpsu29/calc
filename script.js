@@ -59,6 +59,12 @@ btnFunc.forEach((btn) => {
       operandB = "";
       operator = "";
       display.textContent = "0";
+    } else {
+      display.textContent = display.textContent.slice(0, -1);
+      operandB = display.textContent;
+      if (display.textContent == "") {
+        display.textContent = "0";
+      }
     }
   });
 });
