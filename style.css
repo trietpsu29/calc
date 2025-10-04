@@ -20,6 +20,9 @@ body {
   display: flex;
   flex-direction: column;
 }
+.fn {
+  flex: 0 0 25%;
+}
 button {
   border-radius: 50%;
   border-style: none;
@@ -49,11 +52,16 @@ button {
   padding: 3px;
 }
 .func,
-.nums,
-.display {
-  text-align: right;
+.nums {
+  justify-content: end;
 }
 .nums {
   display: flex;
   flex-wrap: wrap;
+}
+.func {
+  display: flex;
+}
+.display {
+  text-align: right;
 }
