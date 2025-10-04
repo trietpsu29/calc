@@ -10,9 +10,10 @@ function multiplyNumbers(a, b) {
 function divideNumbers(a, b) {
   return a / b;
 }
-let operandA;
-let operandB;
-let operator;
+let operandA = "0";
+let operandB = "";
+let operator
+const display = document.querySelector(".display");
 
 function operate(a, op, b) {
   if (op == "+") return addNumbers(a, b);
@@ -21,12 +22,16 @@ function operate(a, op, b) {
   return divideNumbers(a, b);
 }
 function populate(val) {
-  const display = document.querySelector(".display");
-  operandA = display.textContent + val;
-  display.textContent = operandA;
+  if(operandB=="") display.textContent = val;
+  else display.textContent += val;
+  operandB = display.textContent;
 }
-const btn0 = document.querySelector(".zero");
-btn0.addEventListener("click", () => { populate("0") });
-const btn1 = document.querySelector(".one");
-btn1.addEventListener("click", () => { populate("1") });
+const btnNum = document.querySelectorAll(".num");
+btnNum.forEach((btn)=> {
+  btn.addEventListener("click", (e) => {
+  populate(e.target.textContent);
+})
+})
+
+
 
