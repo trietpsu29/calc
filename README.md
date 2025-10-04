@@ -4,9 +4,9 @@ This is the fifth project from [The Odin Project](https://github.com/TheOdinProj
 
 ## ✨ Preview
 
-![Homepage](demo.png)
+![Homepage](demo.PNG)
 
-## 🎮 Usage Guide
+## ⌨️ Usage Guide
 
 You can use the calculator either by **clicking the buttons** on screen or using your **keyboard**:
 
