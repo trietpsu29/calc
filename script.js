@@ -28,8 +28,11 @@ let operator = "";
 const display = document.querySelector(".display");
 
 function populate(val) {
-  if (operandB == "") display.textContent = val;
-  else display.textContent += val;
+  if (val == "." && display.textContent.includes(".")) return;
+  if (operandB == "") {
+    if (val == ".") display.textContent = "0.";
+    else display.textContent = val;
+  } else display.textContent += val;
   operandB = display.textContent;
 }
 const btnNum = document.querySelectorAll(".num");
@@ -45,6 +48,7 @@ btnOp.forEach((btn) => {
     operator = e.target.textContent;
     operandB = "";
     display.textContent = operandA;
+    if (operandA == "Infinity") operandA = "";
   });
 });
 const btnFunc = document.querySelectorAll(".fn");
