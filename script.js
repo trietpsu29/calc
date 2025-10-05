@@ -1,14 +1,14 @@
 function addNumbers(a, b) {
-  return a + b;
+  return parseFloat((a + b).toFixed(10));
 }
 function subtractNumbers(a, b) {
-  return a - b;
+  return parseFloat((a - b).toFixed(10));
 }
 function multiplyNumbers(a, b) {
-  return a * b;
+  return parseFloat((a * b).toFixed(10));
 }
 function divideNumbers(a, b) {
-  return a / b;
+  return parseFloat((a / b).toFixed(10));
 }
 
 function operate(a, op, b) {
