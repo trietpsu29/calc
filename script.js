@@ -88,7 +88,7 @@ document.addEventListener("keydown", (event) => {
     event.key == "=" ||
     event.key == "Enter"
   )
-    opHandler(event.key);
+    opHandler(event.key == "Enter" ? "=" : event.key);
   else if (
     event.key == "Backspace" ||
     event.key == "Delete" ||
