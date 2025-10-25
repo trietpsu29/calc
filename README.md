@@ -1,6 +1,6 @@
 # 🔢 Calc
 
-This is the fifth project from [The Odin Project](https://github.com/TheOdinProject) curriculum — A calculator mostly built in Javascript to practice core programming skills.
+This is the fifth project from [The Odin Project](https://github.com/TheOdinProject) curriculum — a calculator mostly built in Javascript to practice core programming skills.
 
 ## ✨ Preview
 
